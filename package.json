@@ -1,7 +1,7 @@
 {
   "name": "crimson",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -9,12 +9,20 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "start": "serve -s dist -l $PORT",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.3"
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "7.3.3",
+    "gsap": "^3.15.0",
+    "serve": "^14.2.6",
+    "tailwindcss": "^4.3.3"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "optionalDependencies": {
+    "@bruits/satteri-win32-x64-msvc": "^0.10.5"
   }
 }

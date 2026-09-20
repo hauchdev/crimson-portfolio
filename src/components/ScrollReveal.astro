@@ -1,0 +1,42 @@
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const items = document.querySelectorAll(".reveal");
+
+    gsap.set(items, { autoAlpha: 0, y: 22 });
+
+    items.forEach((item) => {
+      gsap.to(item, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.72,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: item,
+          start: "top 88%",
+          once: true
+        }
+      });
+    });
+
+    const hero = document.querySelector("[data-hero-title]");
+    if (hero) {
+      gsap.fromTo(
+        hero.querySelectorAll("[data-hero-line]"),
+        { y: 26, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.08,
+          ease: "power3.out",
+          delay: 0.15
+        }
+      );
+    }
+  }
+</script>

@@ -64,7 +64,7 @@ export const site = {
   email: "hello@example.dev",
   description:
     "Developer focused on software, game technology, infrastructure and digital products.",
-  ogImage: "/images/og.png",
+  ogImage: "/me.webp",
 
   // Change these to control the entire navigation.
   navItems: [
@@ -131,7 +131,7 @@ export const site = {
       category: "GAME DEVELOPMENT",
       description:
         "A modular client ecosystem focused on performance, UX and reusable game technology.",
-      image: "/images/projects/minecraft-client.webp",
+      image: "/icon_2.webp",
       tags: ["Java", "Fabric", "Networking"],
       links: [
         { label: "Case study", href: "#" },
@@ -144,7 +144,7 @@ export const site = {
       category: "NETWORK / INFRA",
       description:
         "A network architecture combining game services, APIs, administration and deployment tooling.",
-      image: "/images/projects/network.webp",
+      image: "/icon_2.webp",
       tags: ["Java", "Linux", "Docker"],
       links: [
         { label: "Case study", href: "#" },
@@ -157,7 +157,7 @@ export const site = {
       category: "DEVELOPER TOOL",
       description:
         "A configurable server lifecycle and restart system built around predictable automation.",
-      image: "/images/projects/restartly.webp",
+      image: "/icon_2.webp",
       tags: ["Java", "Fabric", "Automation"],
       links: [
         { label: "Docs", href: "#" },
@@ -169,7 +169,7 @@ export const site = {
       category: "GAME SYSTEM",
       description:
         "A procedural gameplay experiment combining events, world rules and unpredictable progression.",
-      image: "/images/projects/chaos-shift.webp",
+      image: "/icon_2.webp",
       tags: ["Java", "Procedural", "Gameplay"],
       links: [
         { label: "Overview", href: "#" },

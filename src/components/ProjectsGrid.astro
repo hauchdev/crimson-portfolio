@@ -1,0 +1,8 @@
+---
+import { site } from "../data/site";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<div class="grid gap-3 md:grid-cols-2">
+  {site.projects.map((project) => <ProjectCard project={project} />)}
+</div>

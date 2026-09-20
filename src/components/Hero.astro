@@ -1,0 +1,74 @@
+---
+import { site } from "../data/site";
+---
+
+<section class="relative overflow-hidden pb-16 pt-36 md:pb-24 md:pt-48">
+  <div class="pointer-events-none absolute inset-0 opacity-40 grid-lines"></div>
+
+  <div class="container-main relative grid gap-10 lg:grid-cols-[1.12fr_.88fr] lg:items-center">
+    <div data-hero-title>
+      <div data-hero-line class="eyebrow mb-5">{site.hero.eyebrow}</div>
+
+      <h1 data-hero-line class="display-title max-w-4xl">
+        {site.hero.title}
+        <span class="block text-red-500">{site.hero.highlightedTitle}</span>
+      </h1>
+
+      <p
+        data-hero-line
+        class="mt-6 max-w-2xl text-sm leading-7 text-neutral-500 md:text-base"
+      >
+        {site.hero.description}
+      </p>
+
+      <div data-hero-line class="mt-8 flex flex-wrap gap-3">
+        <a
+          href={site.hero.primaryCta.href}
+          class="rounded-md bg-red-500 px-4 py-3 font-mono text-[10px] font-bold uppercase tracking-widest text-white transition hover:bg-red-400"
+        >
+          {site.hero.primaryCta.label} →
+        </a>
+        <a
+          href={site.hero.secondaryCta.href}
+          target="_blank"
+          rel="noreferrer"
+          class="rounded-md border border-white/10 px-4 py-3 font-mono text-[10px] font-bold uppercase tracking-widest text-neutral-300 transition hover:border-white/20 hover:text-white"
+        >
+          {site.hero.secondaryCta.label}
+        </a>
+      </div>
+
+      <div data-hero-line class="mt-7 flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-neutral-600">
+        <span class="h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_12px_#ff3038]"></span>
+        {site.availability}
+      </div>
+    </div>
+
+    <div data-hero-line class="panel red-glow relative overflow-hidden rounded-xl p-4 md:p-5">
+      <div class="mb-4 flex items-center justify-between border-b border-white/5 pb-3 font-mono text-[9px] text-neutral-600">
+        <span>{site.hero.terminal.title}</span>
+        <span>● ● ●</span>
+      </div>
+
+      <div class="space-y-2 font-mono text-[10px] leading-5 text-neutral-500 md:text-xs">
+        {
+          site.hero.terminal.lines.map((line, index) => (
+            <div class={index >= 2 ? "text-emerald-400/80" : ""}>
+              {line}
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-6 h-44 rounded-lg border border-white/5 bg-black/40 p-5">
+        <div class="flex h-full items-center justify-center">
+          <div class="relative h-24 w-24 rotate-45 border border-red-500/40 bg-red-500/[.04]">
+            <div class="absolute inset-4 border border-white/10"></div>
+            <div class="absolute -right-7 top-1/2 h-px w-8 bg-red-500/30"></div>
+            <div class="absolute -left-7 top-1/2 h-px w-8 bg-white/10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

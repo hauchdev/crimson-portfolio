@@ -1,0 +1,29 @@
+---
+import { site } from "../data/site";
+---
+
+<footer class="border-t border-white/5 py-8">
+  <div class="container-main flex flex-col gap-5 text-[9px] md:flex-row md:items-center md:justify-between">
+    <div>
+      <div class="font-mono uppercase tracking-widest text-neutral-500">{site.footer.copyright}</div>
+      <div class="mt-2 text-neutral-800">Performance-first. Accessible. Open source.</div>
+    </div>
+
+    <div class="flex flex-wrap gap-5 font-mono uppercase tracking-widest text-neutral-700">
+      {
+        site.socials.map((social) => (
+          <a href={social.href} target="_blank" rel="noreferrer" class="transition hover:text-white">
+            {social.label}
+          </a>
+        ))
+      }
+      {
+        site.footer.links.map((link) => (
+          <a href={link.href} target="_blank" rel="noreferrer" class="transition hover:text-white">
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>

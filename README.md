@@ -1,46 +1,83 @@
-# Astro Starter Kit: Basics
+# Example — Performance-first Astro Portfolio
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+A highly reusable, open-source developer portfolio based on the supplied visual reference.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- Astro 5
+- Tailwind CSS 4
+- TypeScript
+- GSAP (loaded dynamically only when reveal animations are needed)
+- Sharp / Astro Assets for build-time image optimization
 
-Inside of your Astro project, you'll see the following folders and files:
+## Performance architecture
+
+This template deliberately avoids React/Vue/Svelte and avoids external fonts.
+
+- Static HTML output.
+- Zero UI-framework runtime.
+- No client-side router.
+- No global animation library loaded on first paint.
+- GSAP is dynamically imported only when `.reveal` elements enter the viewport.
+- `prefers-reduced-motion` disables GSAP entirely.
+- Images live in `src/assets` and are processed by Astro/Sharp.
+- Responsive image widths and `sizes` are declared.
+- Below-the-fold sections use `content-visibility: auto`.
+- Mobile navigation uses normal links instead of a JavaScript menu.
+- Decorative graphics are CSS, not canvas/WebGL.
+- HTML is compressed at build time.
+
+## Customize
+
+Nearly everything is in:
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/data/site.ts
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Change:
 
-## 🧞 Commands
+- `name`
+- `role`
+- `navItems`
+- `hero`
+- `stats`
+- `build`
+- `projects`
+- `technologies`
+- `timeline`
+- `repositories`
+- `code`
+- `services`
+- `socials`
+- `cta`
 
-All commands are run from the root of the project, from a terminal:
+You should not need to edit components for normal customization.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Images
 
-## 👀 Want to learn more?
+The supplied two illustrations are included as:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```text
+src/assets/hero.avif
+src/assets/profile.avif
+```
+
+They were re-encoded from the uploaded WebP files to AVIF quality 75. The originals were ~0.8 MB each; the optimized source assets are roughly ~0.12 MB each before Astro generates the final responsive variants.
+
+To replace them, drop a new image into `src/assets` and change the import in `Hero.astro` / `BuildSection.astro`.
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Production verification:
+
+```bash
+npm run check
+npm run build
+npm run preview
+```

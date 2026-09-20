@@ -1,0 +1,22 @@
+---
+import { site } from "../data/site";
+---
+
+<div class="grid gap-2 md:grid-cols-3">
+  {
+    site.services.map((service) => (
+      <article class="reveal panel rounded-lg p-5">
+        <div class="mb-8 flex h-9 w-9 items-center justify-center rounded border border-red-500/20 bg-red-500/5 font-mono text-xs text-red-400">
+          {service.icon}
+        </div>
+        <h3 class="text-sm font-bold text-white">{service.title}</h3>
+        <p class="mt-2 text-xs leading-6 text-neutral-600">{service.description}</p>
+        {service.href && (
+          <a href={service.href} class="mt-5 inline-block font-mono text-[8px] uppercase tracking-widest text-red-400">
+            Learn more →
+          </a>
+        )}
+      </article>
+    ))
+  }
+</div>

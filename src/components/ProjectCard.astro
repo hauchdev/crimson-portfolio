@@ -1,0 +1,65 @@
+---
+import type { Project } from "../data/site";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="reveal group overflow-hidden rounded-xl border border-white/7 bg-[#0d0d0d]">
+  <div class="relative aspect-[16/9] overflow-hidden bg-[#090909]">
+    {project.image ? (
+      <img
+        src={project.image}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        width="1200"
+        height="675"
+        class="h-full w-full object-cover opacity-70 grayscale transition duration-700 group-hover:scale-[1.025] group-hover:opacity-90 group-hover:grayscale-0"
+      />
+    ) : (
+      <div class="grid h-full place-items-center bg-[radial-gradient(circle_at_60%_40%,rgba(255,48,56,.18),transparent_30%),#090909]">
+        <span class="font-mono text-xs text-neutral-700">PROJECT / PREVIEW</span>
+      </div>
+    )}
+
+    <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0d0d0d] to-transparent"></div>
+
+    <div class="absolute left-4 top-4 rounded border border-red-500/20 bg-black/50 px-2 py-1 font-mono text-[8px] tracking-widest text-red-400 backdrop-blur">
+      {project.category}
+    </div>
+  </div>
+
+  <div class="p-5">
+    <h3 class="text-lg font-bold tracking-tight text-white">{project.title}</h3>
+    <p class="mt-2 text-xs leading-6 text-neutral-600">{project.description}</p>
+
+    <div class="mt-4 flex flex-wrap gap-1.5">
+      {
+        project.tags.map((tag) => (
+          <span class="rounded border border-white/7 bg-white/[.02] px-2 py-1 font-mono text-[8px] text-neutral-500">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+
+    <div class="mt-5 flex gap-2">
+      {
+        project.links.map((link) => (
+          <a
+            href={link.href}
+            target={link.href.startsWith("http") ? "_blank" : undefined}
+            rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+            class="rounded border border-white/8 px-3 py-2 font-mono text-[8px] uppercase tracking-widest text-neutral-500 transition hover:border-red-500/30 hover:text-white"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</article>

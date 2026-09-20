@@ -1,0 +1,26 @@
+---
+import { site } from "../data/site";
+---
+
+<section id="contact" class="section">
+  <div class="container-main">
+    <div class="reveal red-glow relative overflow-hidden rounded-xl border border-white/7 bg-[#101010] px-6 py-16 text-center md:px-16">
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,48,56,.16),transparent_45%)]"></div>
+
+      <div class="relative">
+        <div class="eyebrow">{site.cta.eyebrow}</div>
+        <h2 class="mx-auto mt-4 max-w-3xl text-3xl font-extrabold leading-[.95] tracking-[-.055em] text-white md:text-5xl">
+          {site.cta.title}
+        </h2>
+        <p class="mx-auto mt-5 max-w-xl text-xs leading-6 text-neutral-600">{site.cta.description}</p>
+
+        <a
+          href={site.cta.href}
+          class="mt-8 inline-flex rounded-md bg-red-500 px-5 py-3 font-mono text-[9px] font-bold uppercase tracking-widest text-white transition hover:bg-red-400"
+        >
+          {site.cta.button} →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

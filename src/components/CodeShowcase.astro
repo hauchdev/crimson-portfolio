@@ -1,0 +1,17 @@
+---
+import { site } from "../data/site";
+---
+
+<section class="reveal overflow-hidden rounded-xl border border-white/7 bg-[#0a0a0a]">
+  <div class="flex items-center justify-between border-b border-white/7 px-4 py-3">
+    <div class="flex items-center gap-3">
+      <span class="h-2 w-2 rounded-full bg-red-500"></span>
+      <span class="font-mono text-[9px] text-neutral-600">{site.codeShowcase.filename}</span>
+    </div>
+    <span class="font-mono text-[8px] uppercase tracking-widest text-neutral-700">{site.codeShowcase.language}</span>
+  </div>
+
+  <div class="overflow-x-auto p-5 md:p-8">
+    <pre class="font-mono text-[9px] leading-6 text-neutral-500 md:text-[11px]"><code>{site.codeShowcase.code}</code></pre>
+  </div>
+</section>

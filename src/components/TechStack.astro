@@ -1,0 +1,31 @@
+---
+import { site } from "../data/site";
+
+const categories = [...new Set(site.technologies.map((tech) => tech.category))];
+---
+
+<div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+  {
+    categories.map((category) => (
+      <article class="reveal panel rounded-lg p-4">
+        <div class="mb-5 flex items-center justify-between">
+          <h3 class="font-mono text-[9px] uppercase tracking-widest text-neutral-300">{category}</h3>
+          <span class="text-[9px] text-red-500">+</span>
+        </div>
+
+        <div class="space-y-3">
+          {
+            site.technologies
+              .filter((tech) => tech.category === category)
+              .map((tech) => (
+                <div class="flex items-center justify-between border-b border-white/[.04] pb-2 last:border-0 last:pb-0">
+                  <span class="text-xs text-neutral-500">{tech.name}</span>
+                  <span class="font-mono text-[8px] text-neutral-700">{tech.level}</span>
+                </div>
+              ))
+          }
+        </div>
+      </article>
+    ))
+  }
+</div>

@@ -1,11 +1,116 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import Stats from "../components/Stats.astro";
+import BuildHighlights from "../components/BuildHighlights.astro";
+import ProjectsGrid from "../components/ProjectsGrid.astro";
+import TechStack from "../components/TechStack.astro";
+import Timeline from "../components/Timeline.astro";
+import Repositories from "../components/Repositories.astro";
+import CodeShowcase from "../components/CodeShowcase.astro";
+import Services from "../components/Services.astro";
+import CTA from "../components/CTA.astro";
+import Footer from "../components/Footer.astro";
+import ScrollReveal from "../components/ScrollReveal.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <Header />
+
+  <main>
+    <Hero />
+
+    <section class="pb-20 md:pb-28">
+      <div class="container-main">
+        <Stats />
+      </div>
+    </section>
+
+    <section class="section pt-0" id="build">
+      <div class="container-main">
+        <SectionHeader
+          eyebrow="01 / WHAT I BUILD"
+          title="SYSTEMS THAT SCALE."
+          description="A modular section for the capabilities you want visitors to understand immediately."
+          right="ENGINEERING / PRODUCT"
+        />
+        <BuildHighlights />
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container-main">
+        <SectionHeader
+          eyebrow="02 / SELECTED WORK"
+          title="PROJECTS WITH A PURPOSE."
+          description="Replace the project array in src/data/site.ts. The component handles the layout automatically."
+          right="CASE STUDIES / 04"
+        />
+        <ProjectsGrid />
+      </div>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="container-main">
+        <SectionHeader
+          eyebrow="03 / TECH STACK"
+          title="TOOLS I USE."
+          description="Categories are generated automatically from the technology data."
+          right="LANGUAGES / WEB / GAME / INFRA"
+        />
+        <TechStack />
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container-main">
+        <SectionHeader
+          eyebrow="04 / EXPERIENCE TIMELINE"
+          title="FROM LEARNING TO SHIPPING."
+          description="A compact timeline that can represent jobs, freelance work, open-source milestones or personal projects."
+          right="CAREER / MILESTONES"
+        />
+        <Timeline />
+      </div>
+    </section>
+
+    <section class="section" id="opensource">
+      <div class="container-main">
+        <SectionHeader
+          eyebrow="05 / OPEN SOURCE"
+          title="REPOSITORIES."
+          description="Connect these cards directly to your GitHub projects, releases or documentation."
+          right="GITHUB / RELEASES"
+        />
+        <Repositories />
+
+        <div class="mt-14">
+          <SectionHeader
+            eyebrow="06 / IMPLEMENTATION"
+            title="FROM CODE TO PRODUCT."
+            right="SOURCE / JAVA"
+          />
+          <CodeShowcase />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-main">
+        <SectionHeader
+          eyebrow="07 / WHAT I CAN DO FOR YOU"
+          title="BUILD. SHIP. IMPROVE."
+          right="SERVICES"
+        />
+        <Services />
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+
+  <Footer />
+  <ScrollReveal />
 </Layout>
